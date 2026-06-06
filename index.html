@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>DRIP STORE — Camisetas & iPhones</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,600;1,9..40,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<!-- ═══════════════════════ HEADER ═══════════════════════ -->
+<header>
+  <div class="flex items-center gap-2">
+    <a href="#" class="social-btn" title="Facebook">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+    </a>
+    <a href="#" class="social-btn" title="TikTok">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.79 1.52V6.76a4.85 4.85 0 0 1-1.02-.07z"/></svg>
+    </a>
+    <a href="#" class="social-btn" title="Instagram">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+    </a>
+  </div>
+
+  <div class="search-bar">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input type="text" placeholder="Buscar camisetas, iPhones…" id="search-input"/>
+  </div>
+
+  <div class="flex items-center gap-3">
+    <button class="btn-login" onclick="openLoginModal()">Iniciar Sesión</button>
+    <button id="cart-btn-header" onclick="toggleCart()" title="Carrito" style="background:none;border:none;cursor:pointer;position:relative;display:flex;align-items:center;">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+      <span id="cart-count-h">0</span>
+    </button>
+  </div>
+</header>
+
+<!-- ═══════════════════════ PROMO STRIP ═══════════════════════ -->
+<div class="promo-strip">
+  <div class="promo-inner">
+    <span>★ ENVÍO GRATIS EN PEDIDOS +$50</span>
+    <span>★ iPhones VERIFICADOS &amp; GARANTIZADOS</span>
+    <span>★ CAMISETAS 100% ALGODÓN PREMIUM</span>
+    <span>★ HASTA 30% OFF EN MODELOS SELECCIONADOS</span>
+    <span>★ DEVOLUCIONES SIN PREGUNTAS</span>
+    <span>★ ENVÍO GRATIS EN PEDIDOS +$50</span>
+    <span>★ iPhones VERIFICADOS &amp; GARANTIZADOS</span>
+    <span>★ CAMISETAS 100% ALGODÓN PREMIUM</span>
+    <span>★ HASTA 30% OFF EN MODELOS SELECCIONADOS</span>
+    <span>★ DEVOLUCIONES SIN PREGUNTAS</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════ HERO ═══════════════════════ -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">▶ INICIO TEMPORADA 2025</div>
+    <h1>DRIP<br/><span>STORE</span></h1>
+    <p>Camisetas con estampado único + iPhones usados en estado impecable. Moda y tecnología en un solo lugar.</p>
+    <button class="btn-hero" onclick="scrollToCatalog()">VER CATÁLOGO →</button>
+  </div>
+  <div class="hero-right">
+    <div class="hero-bg-text">DRIP</div>
+    <div class="hero-img-grid">
+      <div class="hero-product-card featured">
+        <span class="badge-new">NUEVO</span>
+        <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400&q=80" alt="Camiseta estampada"/>
+        <div class="card-label">Camiseta / Unisex</div>
+        <div class="card-price">$18.99</div>
+      </div>
+      <div class="hero-product-card">
+        <img src="https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=400&q=80" alt="iPhone usado"/>
+        <div class="card-label">iPhone 14 / 128GB</div>
+        <div class="card-price">$499</div>
+      </div>
+      <div class="hero-product-card">
+        <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=400&q=80" alt="Camiseta"/>
+        <div class="card-label">Camiseta / Urban</div>
+        <div class="card-price">$22.50</div>
+      </div>
+      <div class="hero-product-card featured">
+        <span class="badge-new">OFERTA</span>
+        <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&q=80" alt="iPhone 13"/>
+        <div class="card-label">iPhone 13 Pro / 256GB</div>
+        <div class="card-price">$399</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ CTA BANNER ═══════════════════════ -->
+<section class="cta-banner">
+  <h2>🎁 REGÍSTRATE Y OBTÉN 15% EN TU PRIMERA COMPRA</h2>
+  <p>Crea tu cuenta gratis, acumula puntos con cada pedido, accede a preventas exclusivas y sé el primero en conocer las nuevas colecciones.</p>
+  <button class="btn-cta" onclick="openLoginModal()">CREAR CUENTA GRATIS</button>
+</section>
+
+<!-- ═══════════════════════ CATALOG ═══════════════════════ -->
+<section id="catalog">
+  <p class="font-mono catalog-eyebrow">— EXPLORAR</p>
+  <h2 class="catalog-title">CATÁLOGO DE<br/>PRODUCTOS</h2>
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab('shirts', this)">👕 Camisetas Estampadas</button>
+    <button class="tab-btn" onclick="switchTab('phones', this)">📱 iPhones Usados</button>
+  </div>
+  <div class="product-grid" id="product-grid"></div>
+  <div class="pagination" id="pagination"></div>
+</section>
+
+<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+<footer>
+  <span class="f-brand">DRIP STORE</span>
+  © 2025 DRIP STORE — Todos los derechos reservados.<br/>
+  Diseñado con ♥ para los que se atreven a diferenciarse.
+</footer>
+
+<!-- ═══════════════════════ FLOATING CART BTN ═══════════════════════ -->
+<button id="cart-btn" onclick="toggleCart()">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+  <span id="cart-count">0</span>
+</button>
+
+<!-- ═══════════════════════ CART DRAWER ═══════════════════════ -->
+<div id="cart-overlay" onclick="toggleCart()"></div>
+<div id="cart-drawer">
+  <div class="cart-header">
+    <h2>🛒 MI CARRITO</h2>
+    <button class="close-btn" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cart-items"></div>
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span class="cart-total-label">TOTAL</span>
+      <span id="cart-total-amount">$0.00</span>
+    </div>
+    <button class="btn-checkout" onclick="openCheckout()">PROCEDER AL PAGO →</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════ CHECKOUT MODAL ═══════════════════════ -->
+<div id="checkout-overlay">
+  <div id="checkout-modal">
+    <div class="modal-header">
+      <h2>💳 FINALIZAR COMPRA</h2>
+      <button class="close-btn" onclick="closeCheckout()">✕</button>
+    </div>
+    <div class="modal-body" id="checkout-body">
+
+      <div class="form-section-title">01 — DATOS DE ENVÍO</div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Nombre</label>
+          <input type="text" placeholder="Juan"/>
+        </div>
+        <div class="form-group">
+          <label>Apellido</label>
+          <input type="text" placeholder="Pérez"/>
+        </div>
+        <div class="form-group form-full">
+          <label>Correo electrónico</label>
+          <input type="email" placeholder="juan@email.com"/>
+        </div>
+        <div class="form-group">
+          <label>Teléfono</label>
+          <input type="tel" placeholder="+503 7000-0000"/>
+        </div>
+        <div class="form-group">
+          <label>Ciudad</label>
+          <input type="text" placeholder="San Salvador"/>
+        </div>
+        <div class="form-group form-full">
+          <label>Dirección</label>
+          <input type="text" placeholder="Calle, colonia, número…"/>
+        </div>
+        <div class="form-group">
+          <label>Departamento</label>
+          <select>
+            <option>San Salvador</option>
+            <option>La Libertad</option>
+            <option>Santa Ana</option>
+            <option>San Miguel</option>
+            <option>Sonsonate</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Código postal</label>
+          <input type="text" placeholder="01101"/>
+        </div>
+      </div>
+
+      <div class="form-section-title">02 — MÉTODO DE PAGO</div>
+      <div class="payment-methods">
+        <label class="payment-option selected" id="opt-card" onclick="selectPayment('card')">
+          <input type="radio" name="payment" value="card" checked/>
+          <div>
+            <div class="pm-label">💳 Pagar con Tarjeta</div>
+            <div class="pm-desc">Visa, Mastercard, American Express</div>
+          </div>
+        </label>
+        <div id="card-fields" class="visible">
+          <div class="card-grid">
+            <div class="form-group" style="grid-column:1/-1">
+              <label>Número de tarjeta</label>
+              <input type="text" placeholder="0000 0000 0000 0000" maxlength="19" oninput="formatCard(this)"/>
+            </div>
+            <div class="form-group">
+              <label>Vencimiento</label>
+              <input type="text" placeholder="MM/AA" maxlength="5" oninput="formatExp(this)"/>
+            </div>
+            <div class="form-group">
+              <label>CVV</label>
+              <input type="text" placeholder="123" maxlength="4"/>
+            </div>
+            <div class="form-group">
+              <label>Nombre en tarjeta</label>
+              <input type="text" placeholder="JUAN PEREZ"/>
+            </div>
+          </div>
+        </div>
+        <label class="payment-option" id="opt-cod" onclick="selectPayment('cod')">
+          <input type="radio" name="payment" value="cod"/>
+          <div>
+            <div class="pm-label">🏠 Pago Contraentrega</div>
+            <div class="pm-desc">Paga en efectivo al recibir tu pedido</div>
+          </div>
+        </label>
+        <label class="payment-option" id="opt-transfer" onclick="selectPayment('transfer')">
+          <input type="radio" name="payment" value="transfer"/>
+          <div>
+            <div class="pm-label">🏦 Transferencia Bancaria</div>
+            <div class="pm-desc">Te enviamos los datos por correo tras confirmar</div>
+          </div>
+        </label>
+      </div>
+
+      <div class="form-section-title">03 — RESUMEN DEL PEDIDO</div>
+      <div id="order-summary"></div>
+
+      <button class="btn-pay" onclick="submitOrder()">CONFIRMAR Y PAGAR →</button>
+    </div>
+
+    <div id="success-screen">
+      <div class="success-icon">🎉</div>
+      <h3>¡PEDIDO CONFIRMADO!</h3>
+      <p>Gracias por tu compra. Recibirás un correo con los detalles de tu pedido en breve.</p>
+      <button class="btn-cta" onclick="closeCheckout(); clearCart();">SEGUIR COMPRANDO</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════ LOGIN / REGISTER MODAL ═══════════════════════ -->
+<div id="login-overlay" onclick="handleLoginOverlayClick(event)">
+  
+  <!-- PANEL INICIAR SESIÓN -->
+  <div id="login-modal">
+    <div class="login-header">
+      <span>ACCEDER</span>
+      <button onclick="closeLoginModal()">✕</button>
+    </div>
+    <div class="login-body">
+      <div class="form-group">
+        <label>Correo electrónico</label>
+        <input type="email" id="login-email" placeholder="tu@email.com"/>
+        <span class="field-error" id="err-login-email"></span>
+      </div>
+      <div class="form-group">
+        <label>Contraseña</label>
+        <div class="input-password">
+          <input type="password" id="login-password" placeholder="••••••••"/>
+          <button type="button" class="toggle-pass" onclick="togglePass('login-password', this)">👁</button>
+        </div>
+        <span class="field-error" id="err-login-pass"></span>
+      </div>
+      <div class="remember-row">
+        <label class="check-label">
+          <input type="checkbox" id="remember-me"/> Recordarme
+        </label>
+        <a href="#" class="forgot-link">¿Olvidaste tu contraseña?</a>
+      </div>
+      <button class="btn-pay" onclick="submitLogin()">ENTRAR →</button>
+      <div class="auth-divider"><span>ó</span></div>
+      <p class="switch-auth">
+        ¿Sin cuenta?
+        <a href="#" onclick="switchToRegister()">Regístrate gratis</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- PANEL REGISTRO -->
+<div id="register-modal" style="display:none;">
+  <div class="login-header">
+    <span>CREAR CUENTA</span>
+    <button onclick="closeLoginModal()">✕</button>
+  </div>
+  <div class="login-body">
+    <div class="form-grid" style="margin-bottom:0;">
+      <div class="form-group">
+        <label>Nombre</label>
+        <input type="text" id="reg-nombre" placeholder="Juan"/>
+        <span class="field-error" id="err-reg-nombre"></span>
+      </div>
+      <div class="form-group">
+        <label>Apellido</label>
+        <input type="text" id="reg-apellido" placeholder="Pérez"/>
+        <span class="field-error" id="err-reg-apellido"></span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Correo electrónico</label>
+      <input type="email" id="reg-email" placeholder="tu@email.com"/>
+      <span class="field-error" id="err-reg-email"></span>
+    </div>
+    <div class="form-group">
+      <label>Teléfono <span style="color:var(--mid);font-weight:400;">(opcional)</span></label>
+      <input type="tel" id="reg-telefono" placeholder="+503 7000-0000"/>
+    </div>
+    <div class="form-group">
+      <label>Contraseña</label>
+      <div class="input-password">
+        <input type="password" id="reg-password" placeholder="Mín. 8 caracteres" oninput="checkPasswordStrength(this.value)"/>
+        <button type="button" class="toggle-pass" onclick="togglePass('reg-password', this)">👁</button>
+      </div>
+      <div class="password-strength">
+        <div class="strength-bar">
+          <div id="strength-fill"></div>
+        </div>
+        <span id="strength-label"></span>
+      </div>
+      <span class="field-error" id="err-reg-pass"></span>
+    </div>
+    <div class="form-group">
+      <label>Confirmar contraseña</label>
+      <div class="input-password">
+        <input type="password" id="reg-password2" placeholder="Repite tu contraseña"/>
+        <button type="button" class="toggle-pass" onclick="togglePass('reg-password2', this)">👁</button>
+      </div>
+      <span class="field-error" id="err-reg-pass2"></span>
+    </div>
+
+    <!-- ✅ AQUÍ ESTÁ EL CAMBIO — los enlaces ahora abren el modal -->
+    <label class="check-label terms-check">
+      <input type="checkbox" id="reg-terms"/>
+      Acepto los
+      <a href="#" onclick="openTermsModal('terms')">Términos y Condiciones</a>
+      y la
+      <a href="#" onclick="openTermsModal('privacy')">Política de Privacidad</a>
+    </label>
+
+    <span class="field-error" id="err-reg-terms"></span>
+    <button class="btn-pay" style="background:var(--accent);" onclick="submitRegister()">
+      CREAR CUENTA →
+    </button>
+    <div class="auth-divider"><span>ó</span></div>
+    <p class="switch-auth">
+      ¿Ya tienes cuenta?
+      <a href="#" onclick="switchToLogin()">Inicia sesión</a>
+    </p>
+  </div>
+</div>
+
+  <!-- PANTALLA DE BIENVENIDA TRAS REGISTRO -->
+  <div id="register-success" style="display:none;">
+    <div class="login-header">
+      <span>¡BIENVENIDO!</span>
+      <button onclick="closeLoginModal()">✕</button>
+    </div>
+    <div class="login-body" style="text-align:center; padding: 2.5rem 2rem;">
+      <div style="font-size:3.5rem; margin-bottom:1rem;">🎉</div>
+      <h3 style="font-family:'Bebas Neue',sans-serif; font-size:2rem; margin-bottom:.5rem;" id="welcome-name">
+        ¡HOLA!
+      </h3>
+      <p style="color:var(--mid); margin-bottom:.5rem;">
+        Tu cuenta ha sido creada exitosamente.
+      </p>
+      <p style="
+        background: var(--accent);
+        color: #fff;
+        font-family: 'Space Mono', monospace;
+        font-size: .8rem;
+        padding: .6rem 1rem;
+        margin-bottom: 1.5rem;
+        display: inline-block;
+      ">🎁 15% DE DESCUENTO EN TU PRIMERA COMPRA</p>
+      <button class="btn-pay" onclick="closeLoginModal()">EMPEZAR A COMPRAR →</button>
+    </div>
+  </div>
+
+</div>
+<script src="app.js"></script>
+<!-- ═══════════════════════ TÉRMINOS Y CONDICIONES MODAL ═══════════════════════ -->
+<div id="terms-overlay" onclick="handleTermsOverlayClick(event)">
+  <div id="terms-modal">
+    <div class="login-header">
+      <span id="terms-modal-title">TÉRMINOS Y CONDICIONES</span>
+      <button onclick="closeTermsModal()">✕</button>
+    </div>
+    <div class="terms-body">
+
+      <!-- TÉRMINOS Y CONDICIONES -->
+<div id="terms-content">
+  <div class="terms-section">
+    <p style="font-size:.85rem; color:var(--mid); font-family:'Space Mono',monospace; margin-bottom:1rem;">
+      Bienvenido a DRIP STORE. Los presentes Términos y Condiciones regulan el acceso, uso y las transacciones comerciales que se realicen a través de nuestra aplicación web. Al registrarse y utilizar nuestra plataforma, usted acepta de manera íntegra y sin reservas las disposiciones aquí detalladas. Si no está de acuerdo con estos términos, deberá abstenerse de utilizar el sitio.
+    </p>
+  </div>
+
+  <div class="terms-section">
+    <h4>1. INFORMACIÓN LEGAL Y OBJETO</h4>
+    <p>DRIP STORE es una plataforma de comercio electrónico gestionada por una persona natural, con domicilio y operaciones principales en la ciudad de San Salvador, El Salvador. El objeto de la aplicación web es la comercialización de prendas de vestir (camisas) y dispositivos móviles (iPhones seminuevos y reconstruidos).</p>
+  </div>
+
+  <div class="terms-section">
+    <h4>2. REGISTRO DE USUARIOS Y SEGURIDAD</h4>
+    <p><strong>Obligatoriedad de Registro:</strong> Para realizar cualquier compra dentro de la plataforma, es obligatorio que el usuario cree una cuenta y complete el formulario de registro con datos verídicos, exactos y actualizados.</p>
+    <br/>
+    <p><strong>Seguridad de la Cuenta:</strong> El usuario es el único responsable de mantener la confidencialidad de su contraseña y de las actividades que se realicen bajo su cuenta.</p>
+    <br/>
+    <p><strong>Política Antifraude y Bloqueo:</strong> DRIP STORE mantiene una política de cero tolerancia hacia los fraudes. Si se detecta un comportamiento sospechoso, intentos de contracargo maliciosos, suplantación de identidad o cualquier actividad fraudulenta, la tienda se reserva el derecho exclusivo de banear, suspender o eliminar de forma definitiva la cuenta del usuario, sin previo aviso y sin derecho a reclamación.</p>
+  </div>
+
+  <div class="terms-section">
+    <h4>3. PRECIOS, ERRORES DE SISTEMA Y PAGOS</h4>
+    <p><strong>Precios y Disponibilidad:</strong> Todos los precios están expresados en la moneda de curso legal aplicable y se muestran antes de finalizar la compra. DRIP STORE se reserva el derecho de modificar los precios en cualquier momento.</p>
+    <br/>
+    <p><strong>Fe de Errata o Errores de Precio:</strong> En caso de que, por un error técnico, del sistema o tipográfico, un producto se publique con un precio manifiestamente erróneo, DRIP STORE se reserva el derecho de cancelar la orden de compra de manera unilateral. En tal situación, nos comunicaremos directamente con el cliente para informarle del error y proceder con el reembolso íntegro de su dinero.</p>
+    <br/>
+    <p><strong>Métodos de Pago aceptados:</strong></p>
+    <ul class="terms-list">
+      <li>Transferencia bancaria.</li>
+      <li>Pago con tarjeta de crédito o débito a través de la pasarela de la app.</li>
+      <li>Pago contra entrega (disponible tanto en efectivo como por transferencia al momento de recibir el producto).</li>
+    </ul>
+  </div>
+
+  <div class="terms-section">
+    <h4>4. COBERTURA DE ENVÍOS Y LOGÍSTICA</h4>
+    <p><strong>Zonas de Cobertura:</strong> Las entregas se limitan exclusivamente a los siguientes departamentos de El Salvador:</p>
+    <ul class="terms-list">
+      <li>San Salvador</li>
+      <li>La Libertad</li>
+      <li>Santa Ana</li>
+      <li>San Miguel</li>
+      <li>Sonsonate</li>
+    </ul>
+    <br/>
+    <p>No se procesarán pedidos fuera de estas áreas.</p>
+    <br/>
+    <p><strong>Pérdida o Daños en el Envío:</strong> En el caso fortuito de que un paquete se extravíe o sufra daños durante el trayecto de entrega, DRIP STORE realizará una evaluación detallada de la situación para proceder, según corresponda, con la devolución del dinero o el cambio/reposición del producto.</p>
+  </div>
+
+  <div class="terms-section">
+    <h4>5. POLÍTICA DE CAMBIOS Y DEVOLUCIONES</h4>
+    <p>Los gastos de envío derivados de un cambio o devolución aprobado serán asumidos en su totalidad por DRIP STORE.</p>
+    <br/>
+    <p><strong>Para Prendas de Vestir (Camisas) — Cambio de Talla:</strong></p>
+    <ul class="terms-list">
+      <li><strong>Error por parte del Cliente:</strong> Si el cliente seleccionó una talla incorrecta por error propio, dispondrá de un plazo estricto de <strong>48 horas</strong> a partir de la recepción del producto para solicitar el cambio. El producto debe estar completamente nuevo, con etiquetas y sin señales de uso.</li>
+      <li><strong>Error por parte de la Tienda:</strong> Si DRIP STORE envía una talla diferente a la solicitada, el cliente dispondrá de un plazo de <strong>72 horas</strong> para reportar el inconveniente y gestionar la sustitución del artículo.</li>
+    </ul>
+    <br/>
+    <p><strong>Para Dispositivos Móviles (iPhones):</strong> Al tratarse de artículos tecnológicos de las categorías de seminuevos y reconstruidos, no se aceptan devoluciones por descontento estético subjetivo o arrepentimiento de la compra. Las devoluciones de iPhones se aplicarán única y exclusivamente por <strong>problemas técnicos verificables de fábrica</strong>.</p>
+  </div>
+
+  <div class="terms-section">
+    <h4>6. GARANTÍA DE DISPOSITIVOS (iPhones)</h4>
+    <p><strong>Condición del Producto:</strong> El cliente declara conocer y aceptar que los iPhones comercializados son equipos seminuevos o reconstruidos, por lo que pueden presentar mínimos detalles de uso cosmético que no afectan su rendimiento operativo.</p>
+    <br/>
+    <p><strong>Plazo y Cobertura:</strong> Todos los iPhones cuentan con una garantía limitada de <strong>un (1) mes calendario</strong> a partir de la fecha de entrega. La garantía cubre únicamente fallas técnicas y de software de origen o desperfectos de componentes internos de fábrica.</p>
+    <br/>
+    <p><strong>Exclusiones — La garantía quedará automáticamente anulada si el dispositivo muestra:</strong></p>
+    <ul class="terms-list">
+      <li>Golpes, caídas o abolladuras causadas por mal uso.</li>
+      <li>Humedad, contacto con agua o líquidos.</li>
+      <li>Manipulación interna o apertura del equipo por parte de terceros no autorizados por la tienda.</li>
+    </ul>
+  </div>
+
+  <div class="terms-section">
+    <h4>7. JURISDICCIÓN Y LEGISLACIÓN APLICABLE</h4>
+    <p>Estos Términos y Condiciones se rigen por las leyes de la República de El Salvador (incluyendo la Ley de Protección al Consumidor y la Ley de Comercio Electrónico). Cualquier controversia que no pueda ser resuelta de mutuo acuerdo se someterá a las instancias administrativas correspondientes o a los tribunales de la ciudad de <strong>San Salvador</strong>.</p>
+  </div>
+</div>
+
+      <!-- POLÍTICA DE PRIVACIDAD -->
+      <div id="privacy-content" style="display:none;">
+        <div class="terms-section">
+          <h4>1. Información que Recopilamos</h4>
+          <p>Recopilamos información que nos proporcionas directamente: nombre, apellido, correo electrónico, teléfono y dirección de envío. También recopilamos datos de navegación de forma anónima para mejorar tu experiencia.</p>
+        </div>
+        <div class="terms-section">
+          <h4>2. Uso de la Información</h4>
+          <p>Utilizamos tu información para procesar pedidos, enviarte confirmaciones y actualizaciones, personalizar tu experiencia de compra, mejorar nuestros servicios y enviarte ofertas especiales (solo si lo autorizas).</p>
+        </div>
+        <div class="terms-section">
+          <h4>3. Protección de Datos</h4>
+          <p>Implementamos medidas de seguridad técnicas y organizativas para proteger tu información personal contra acceso no autorizado, alteración, divulgación o destrucción. Tus datos de pago son procesados mediante cifrado SSL.</p>
+        </div>
+        <div class="terms-section">
+          <h4>4. Compartir Información</h4>
+          <p>No vendemos ni alquilamos tu información personal a terceros. Podemos compartir datos con proveedores de servicios de confianza (empresas de mensajería, procesadores de pago) únicamente para completar tus pedidos.</p>
+        </div>
+        <div class="terms-section">
+          <h4>5. Cookies</h4>
+          <p>Utilizamos cookies para recordar tus preferencias, mantener tu sesión activa y analizar el tráfico de nuestra tienda. Puedes desactivar las cookies desde la configuración de tu navegador, aunque esto podría afectar algunas funcionalidades.</p>
+        </div>
+        <div class="terms-section">
+          <h4>6. Tus Derechos</h4>
+          <p>Tienes derecho a acceder, corregir o eliminar tu información personal en cualquier momento. Para ejercer estos derechos contáctanos en <strong>privacidad@dripstore.com</strong>. Procesaremos tu solicitud en un plazo máximo de 10 días hábiles.</p>
+        </div>
+        <div class="terms-section">
+          <h4>7. Retención de Datos</h4>
+          <p>Conservamos tu información mientras tu cuenta esté activa o sea necesaria para prestarte servicios. Puedes solicitar la eliminación de tu cuenta y datos asociados en cualquier momento.</p>
+        </div>
+        <div class="terms-section">
+          <h4>8. Menores de Edad</h4>
+          <p>Nuestros servicios no están dirigidos a menores de 18 años. No recopilamos conscientemente información de menores. Si eres padre o tutor y crees que tu hijo nos ha proporcionado datos, contáctanos de inmediato.</p>
+        </div>
+        <div class="terms-section">
+          <h4>9. Cambios en esta Política</h4>
+          <p>Podemos actualizar esta política periódicamente. La fecha de última actualización aparecerá siempre al inicio del documento. Te recomendamos revisarla regularmente.</p>
+        </div>
+        <div class="terms-section">
+          <h4>10. Contacto</h4>
+          <p>Para preguntas sobre privacidad escríbenos a <strong>privacidad@dripstore.com</strong>. Estamos comprometidos con la transparencia y la protección de tus datos.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Footer del modal -->
+    <div class="terms-footer">
+      <span class="terms-update">Última actualización: Junio 2025</span>
+      <button class="btn-accept-terms" onclick="acceptAndClose()">
+        ENTENDIDO Y ACEPTO ✓
+      </button>
+    </div>
+  </div>
+</div>
+</body>
+</html>
